@@ -12,7 +12,9 @@ const app = express();
 
 app.use(cors());
 app.use(bodyParser.json());
-
+app.get("/", function (req, res) {
+  res.send("<h1>Hello World!</h1>");
+});
 app.use("/api/auth", require("./routes/authRoutes"));
 app.use("/api/users", require("./routes/userRoutes"));
 app.use("/api/initiatives", require("./routes/initiativeRoutes"));
