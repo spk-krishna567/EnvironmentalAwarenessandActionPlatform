@@ -8,7 +8,12 @@ import {
   initiativeDetailsReducer,
   initiativeCreateReducer,
 } from "./reducers/initiativeReducers";
-import { postListReducer, postCreateReducer } from "./reducers/postReducers";
+import {
+  postListReducer,
+  postCreateReducer,
+  postLikeReducer,
+  postCommentReducer,
+} from "./reducers/postReducers";
 import {
   challengeListReducer,
   challengeCreateReducer,
@@ -25,6 +30,9 @@ const reducer = combineReducers({
   initiativeDetails: initiativeDetailsReducer,
   initiativeCreate: initiativeCreateReducer,
   postList: postListReducer,
+  postCreate: postCreateReducer,
+  postLike: postLikeReducer,
+  postComment: postCommentReducer,
   challengeList: challengeListReducer,
   challengeCreate: challengeCreateReducer,
   resourceList: resourceListReducer,

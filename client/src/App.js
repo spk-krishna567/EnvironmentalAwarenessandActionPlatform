@@ -8,6 +8,7 @@ import LoginScreen from "./screens/LoginScreen";
 import ProfileScreen from "./screens/ProfileScreen";
 import RegisterScreen from "./screens/RegisterScreen";
 import CreateInitiative from "./components/CreateInitiative";
+import CreatePost from "./components/CreatePost";
 
 const App = () => {
   return (
@@ -20,6 +21,7 @@ const App = () => {
           <Route path="/register" element={<RegisterScreen />} />
           <Route path="/profile" element={<ProfileScreen />} />
           <Route path="/createinitiative" element={<CreateInitiative />} />
+          <Route path="/create-post" element={<CreatePost />} />
         </Routes>
       </Container>
     </Router>

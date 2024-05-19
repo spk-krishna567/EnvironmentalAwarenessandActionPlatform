@@ -1,6 +1,6 @@
 // src/components/Navbar.js
-import React from "react";
-import { Link } from "react-router-dom";
+import React, { useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { logout } from "../actions/authActions";
 import {
@@ -16,12 +16,22 @@ import {
 
 const Navbar = () => {
   const dispatch = useDispatch();
-
+  const navigate = useNavigate();
   const userLogin = useSelector((state) => state.auth);
   const { userInfo } = userLogin;
+  const [anchorEl, setAnchorEl] = useState(null);
+  const handleMenu = (event) => {
+    setAnchorEl(event.currentTarget);
+  };
+
+  const handleClose = () => {
+    setAnchorEl(null);
+  };
 
   const logoutHandler = () => {
+    handleClose();
     dispatch(logout());
+    navigate("/login");
   };
 
   return (
@@ -34,26 +44,15 @@ const Navbar = () => {
         </Typography>
         {userInfo ? (
           <div>
+            <Button color="inherit" component={Link} to="/">
+              Dashboard
+            </Button>
+            <Button color="inherit" component={Link} to="/create-post">
+              Create Post
+            </Button>
             <Button color="inherit" component={Link} to="/createinitiative">
               Create Initiative
             </Button>
-            <Menu
-              id="menu-appbar"
-              anchorEl={null}
-              anchorOrigin={{
-                vertical: "top",
-                horizontal: "right",
-              }}
-              keepMounted
-              transformOrigin={{
-                vertical: "top",
-                horizontal: "right",
-              }}
-              open={Boolean(null)}
-              onClose={logoutHandler}
-            >
-              <MenuItem onClick={logoutHandler}>Logout</MenuItem>
-            </Menu>
             <IconButton
               edge="end"
               aria-label="account of current user"
@@ -64,6 +63,23 @@ const Navbar = () => {
             >
               <Avatar alt={userInfo.name} src="/static/images/avatar/1.jpg" />
             </IconButton>
+            <Menu
+              id="menu-appbar"
+              anchorEl={anchorEl}
+              anchorOrigin={{
+                vertical: "top",
+                horizontal: "right",
+              }}
+              keepMounted
+              transformOrigin={{
+                vertical: "top",
+                horizontal: "right",
+              }}
+              open={Boolean(anchorEl)}
+              onClose={logoutHandler}
+            >
+              <MenuItem onClick={logoutHandler}>Logout</MenuItem>
+            </Menu>
           </div>
         ) : (
           <div>
