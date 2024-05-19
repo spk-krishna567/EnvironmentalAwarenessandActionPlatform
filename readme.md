@@ -141,3 +141,11 @@ environmental-awareness-platform/
   - GET /api/posts/:id - Get a post by ID
   - PUT /api/posts/:id/like - Like a post
   - POST /api/posts/:id/comment - Comment on a post
+
+## app images
+
+![Alt text](./images/Screenshot%202024-05-19%20231211.png)
+![Alt text](./images/Screenshot%202024-05-19%20231333.png)
+![Alt text](./images/Screenshot%202024-05-19%20231421.png)
+![Alt text](./images/Screenshot%202024-05-19%20231454.png)
+![Alt text](./images/Screenshot%202024-05-19%20231531.png)
